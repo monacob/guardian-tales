@@ -1,10 +1,10 @@
 // @flow
 
-export type Role = 'TANKER' | 'WARRIOR';
-export type Element = 'WATER' | 'LIGHT';
-export type Resistance = { type: 'BASIC' | 'DARK' | 'FIRE' | 'EARTH', value: number };
+export type Role = 'TANKER' | 'WARRIOR' | 'RANGED';
+export type Element = 'WATER' | 'LIGHT' | 'FIRE' | 'EARTH' | 'DARK';
+export type Resistance = { type: 'BASIC' | Element, value: number };
 export type Attribute = 'HP' | 'RANGE_ATK' | 'ATK' | 'WEAPON_SKILL_REGEN_SPEED';
-export type SkillTarget = 'SELF' | 'PARTY' | Element
+export type SkillTarget = 'SELF' | 'PARTY' | Element | Role
 export type Skill = {
     target: SkillTarget,
     attribute: Attribute,
@@ -67,6 +67,30 @@ const heroes: Array<Hero> = [
             target: 'LIGHT',
             attribute: 'ATK',
             value: 0.4
+        }, {
+            target: 'SELF',
+            attribute: 'WEAPON_SKILL_REGEN_SPEED',
+            value: 0.06
+        }]
+    },
+    {
+        name: 'Tinia',
+        role: 'RANGED',
+        element: 'EARTH',
+        atk: 689,
+        criticalHitChance: 0.03,
+        hp: 18426,
+        def: 124,
+        damageReduction: 30,
+        cardSlot: 2,
+        resistance: [
+            {type: 'FIRE', value: -0.3},
+            {type: 'WATER', value: 0.3},
+        ],
+        skills: [{
+            target: 'RANGED',
+            attribute: 'ATK',
+            value: 0.50
         }, {
             target: 'SELF',
             attribute: 'WEAPON_SKILL_REGEN_SPEED',

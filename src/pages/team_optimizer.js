@@ -41,6 +41,7 @@ function calculateTeamAttributes(teams: Array<Team>) {
                 for (let skill of skilledMember.skills) {
                     const eligible = (skill.target === 'SELF' && skilledMember.name === member.name)
                         || member.element === skill.target
+                        || member.role === skill.target
                         || skill.target === 'PARTY'
                     if (eligible) {
                         if (!multipliers.has(member.name)) {
