@@ -136,6 +136,42 @@ const heroes: Array<Hero> = [
             attribute: 'WEAPON_SKILL_REGEN_SPEED',
             value: 0.05
         }]
+    },
+    {
+        name: 'Flower Girl Bari',
+        role: 'RANGED',
+        element: 'EARTH',
+        atk: 977,
+        criticalHitChance: 0.03,
+        hp: 18082,
+        def: 155,
+        damageReduction: 22,
+        cardSlot: 2,
+        resistance: [
+            {type: 'FIRE', value: -0.3},
+            {type: 'WATER', value: 0.3},
+        ],
+        skills: []
+    },
+    {
+        name: 'Red Hood Elvira',
+        role: 'RANGED',
+        element: 'FIRE',
+        atk: 684,
+        criticalHitChance: 0.02,
+        hp: 17642,
+        def: 98,
+        damageReduction: 23,
+        cardSlot: 2,
+        resistance: [
+            {type: 'WATER', value: -0.3},
+            {type: 'EARTH', value: 0.3},
+        ],
+        skills: [{
+            target: 'RANGED',
+            attribute: 'ATK',
+            value: 0.48
+        }]
     }
 ]
 
