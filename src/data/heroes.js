@@ -192,6 +192,46 @@ const heroes: Array<Hero> = [
             attribute: 'ATK',
             value: 0.30
         }]
+    },
+    {
+        name: 'CV. jennifer Losi',
+        role: 'WARRIOR',
+        element: 'FIRE',
+        atk: 625,
+        criticalHitChance: 0.03,
+        hp: 20091,
+        def: 154,
+        damageReduction: 22,
+        cardSlot: 2,
+        resistance: [
+            {type: 'WATER', value: -0.3},
+            {type: 'EARTH', value: 0.3},
+        ],
+        skills: [{
+            target: 'FIRE',
+            attribute: 'ATK',
+            value: 0.40
+        }]
+    },
+    {
+        name: 'CV. jennifer Losi',
+        role: 'WARRIOR',
+        element: 'FIRE',
+        atk: 625,
+        criticalHitChance: 0.03,
+        hp: 20091,
+        def: 154,
+        damageReduction: 22,
+        cardSlot: 2,
+        resistance: [
+            {type: 'WATER', value: -0.3},
+            {type: 'EARTH', value: 0.3},
+        ],
+        skills: [{
+            target: 'FIRE',
+            attribute: 'ATK',
+            value: 0.40
+        }]
     }
 ]
 
