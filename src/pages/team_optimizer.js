@@ -10,6 +10,7 @@ type Team = {
     members: Array<Hero>,
     atk: { basic: number, adjusted: number },
     hp: { basic: number, adjusted: number },
+    def: { basic: number, adjusted: number },
 }
 
 const teams = [];
@@ -17,6 +18,7 @@ generateTeams({
     members: [],
     atk: {basic: 0, adjusted: 0},
     hp: {basic: 0, adjusted: 0},
+    def: {basic: 0, adjusted: 0},
 });
 calculateTeamAttributes(teams);
 
@@ -61,7 +63,7 @@ function calculateTeamAttributes(teams: Array<Team>) {
                 }
             }
         }
-        for (let attr of ['ATK', 'HP']) {
+        for (let attr of ['ATK', 'HP', 'DEF']) {
             const {basic, adjusted} = team.members.map(member => {
                 const basic = member[attr.toLowerCase()];
                 const multiplier = 1 + (multipliers.get(member.name)?.get(attr) ?? 0);
@@ -114,6 +116,17 @@ const columns = [
             </Tooltip>
         },
         sorter: (a, b) => a.hp.adjusted - b.hp.adjusted
+    },
+    {
+        title: 'Defence',
+        dataIndex: 'def',
+        key: 'def',
+        render: ({basic, adjusted}) => {
+            return <Tooltip title={`${basic} ${adjusted}`}>
+                {adjusted}
+            </Tooltip>
+        },
+        sorter: (a, b) => a.def.adjusted - b.def.adjusted
     },
     // {
     //     title: 'Defence',

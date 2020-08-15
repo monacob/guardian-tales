@@ -3,7 +3,7 @@
 export type Role = 'TANKER' | 'WARRIOR' | 'RANGED' | 'SUPPORT';
 export type Element = 'BASIC' | 'WATER' | 'LIGHT' | 'FIRE' | 'EARTH' | 'DARK';
 export type Resistance = { type: Element, value: number };
-export type Attribute = 'HP' | 'RANGE_ATK' | 'ATK' | 'WEAPON_SKILL_REGEN_SPEED';
+export type Attribute = 'HP' | 'DEF' | 'RANGE_ATK' | 'ATK' | 'WEAPON_SKILL_REGEN_SPEED';
 export type SkillTarget = 'SELF' | 'PARTY' | Element | Role
 export type Skill = {
     target: SkillTarget,
