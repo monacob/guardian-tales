@@ -128,42 +128,6 @@ const columns = [
         },
         sorter: (a, b) => a.def.adjusted - b.def.adjusted
     },
-    // {
-    //     title: 'Defence',
-    //     dataIndex: 'def',
-    //     key: 'def',
-    // }, {
-    //     title: 'Damage Reduction',
-    //     dataIndex: 'damageReduction',
-    //     key: 'damageReduction',
-    // }, {
-    //     title: 'Critical Hit Chance',
-    //     dataIndex: 'criticalHitChance',
-    //     key: 'criticalHitChance',
-    // }, {
-    //     title: 'Resistance',
-    //     dataIndex: 'resistance',
-    //     key: 'resistance',
-    //     render: (resistance: Array<Resistance>) => {
-    //         return resistance.map(res => {
-    //             return <div>{`${res.type}: ${res.value * 100}%`}</div>
-    //         })
-    //     }
-    // }, {
-    //     title: 'Card Slot',
-    //     dataIndex: 'cardSlot',
-    //     key: 'cardSlot',
-    // }, {
-    //     title: 'Skills',
-    //     dataIndex: 'skills',
-    //     key: 'skills',
-    //     render: (skills: Array<Skill>) => {
-    //         return skills.map(skill => {
-    //             const target = skill.target === 'SELF' ? '' : `[${skill.target}]`
-    //             return <div>{`${target}${skill.attribute}: ${skill.value * 100}%`}</div>
-    //         })
-    //     }
-    // },
 ];
 
 
