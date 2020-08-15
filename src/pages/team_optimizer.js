@@ -88,6 +88,11 @@ const columns = [
         }
     },
     {
+        title: 'Level',
+        key: 'level',
+        render: () => 68
+    },
+    {
         title: 'Attack',
         dataIndex: 'atk',
         key: 'atk',
