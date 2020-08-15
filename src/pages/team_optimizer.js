@@ -1,9 +1,9 @@
 // @flow
 
-import React, {useMemo} from 'react';
-import {Table, Tooltip} from 'antd';
+import React, {useMemo, useState} from 'react';
+import {Table, Tooltip, Checkbox} from 'antd';
 
-import heroes from '../data/heroes.js'
+import data from '../data/heroes.js'
 import type {Attribute, Hero} from "../data/heroes";
 
 type Team = {
@@ -13,7 +13,7 @@ type Team = {
     def: { basic: number, adjusted: number },
 }
 
-function generateTeams(teams: Array<Team>, team: Team) {
+function generateTeams(heroes: Array<Hero>, teams: Array<Team>, team: Team) {
     if (team.members.length === 4 || team.members.length === heroes.length) {
         teams.push(team)
     }
@@ -21,7 +21,7 @@ function generateTeams(teams: Array<Team>, team: Team) {
         const newTeam = JSON.parse(JSON.stringify(team))
         if (newTeam.members.every(member => member.name < hero.name)) {
             newTeam.members.push(hero)
-            generateTeams(teams, newTeam)
+            generateTeams(heroes, teams, newTeam)
         }
     }
 }
@@ -123,9 +123,10 @@ const columns = [
 
 
 function TeamOptimizer() {
+    const [selectedHeroes, setSelectedHeroes] = useState(data)
     const calculatedTeams = useMemo(() => {
         const teams = [];
-        generateTeams(teams, {
+        generateTeams(selectedHeroes, teams, {
             members: [],
             atk: {basic: 0, adjusted: 0},
             hp: {basic: 0, adjusted: 0},
@@ -133,10 +134,19 @@ function TeamOptimizer() {
         });
         calculateTeamAttributes(teams);
         return teams;
-    }, [])
+    }, [selectedHeroes])
 
-
-    return <Table columns={columns} dataSource={calculatedTeams}/>
+    return <div>
+        <Checkbox.Group options={data.map(hero => {
+            return {
+                label: hero.name,
+                value: hero.name
+            }
+        })} defaultValue={['Apple']} onChange={heroes => {
+            setSelectedHeroes(data.filter(hero => heroes.includes(hero.name)));
+        }}/>
+        <Table columns={columns} dataSource={calculatedTeams}/>
+    </div>
 }
 
 export default TeamOptimizer;
