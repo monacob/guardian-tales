@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import React, {useMemo} from 'react';
 import {Table, Tooltip} from 'antd';
 
 import heroes from '../data/heroes.js'
@@ -13,16 +13,7 @@ type Team = {
     def: { basic: number, adjusted: number },
 }
 
-const teams = [];
-generateTeams({
-    members: [],
-    atk: {basic: 0, adjusted: 0},
-    hp: {basic: 0, adjusted: 0},
-    def: {basic: 0, adjusted: 0},
-});
-calculateTeamAttributes(teams);
-
-function generateTeams(team: Team) {
+function generateTeams(teams: Array<Team>, team: Team) {
     if (team.members.length === 4 || team.members.length === heroes.length) {
         teams.push(team)
     }
@@ -30,7 +21,7 @@ function generateTeams(team: Team) {
         const newTeam = JSON.parse(JSON.stringify(team))
         if (newTeam.members.every(member => member.name < hero.name)) {
             newTeam.members.push(hero)
-            generateTeams(newTeam)
+            generateTeams(teams, newTeam)
         }
     }
 }
@@ -132,7 +123,20 @@ const columns = [
 
 
 function TeamOptimizer() {
-    return <Table columns={columns} dataSource={teams}/>
+    const calculatedTeams = useMemo(() => {
+        const teams = [];
+        generateTeams(teams, {
+            members: [],
+            atk: {basic: 0, adjusted: 0},
+            hp: {basic: 0, adjusted: 0},
+            def: {basic: 0, adjusted: 0},
+        });
+        calculateTeamAttributes(teams);
+        return teams;
+    }, [])
+
+
+    return <Table columns={columns} dataSource={calculatedTeams}/>
 }
 
 export default TeamOptimizer;
