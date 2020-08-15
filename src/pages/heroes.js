@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-
+import type {Skill, Resistance} from "../data/heroes.js";
 import {Table} from 'antd';
 
 import data from '../data/heroes.js'
@@ -43,7 +43,7 @@ const columns = [
         title: 'Resistance',
         dataIndex: 'resistance',
         key: 'resistance',
-        render: resistance => {
+        render: (resistance: Array<Resistance>) => {
             return resistance.map(res => {
                 return <div>{`${res.type}: ${res.value * 100}%`}</div>
             })
@@ -56,9 +56,9 @@ const columns = [
         title: 'Skills',
         dataIndex: 'skills',
         key: 'skills',
-        render: skills => {
+        render: (skills: Array<Skill>) => {
             return skills.map(skill => {
-                const target = skill.target === 'SELF' ? '' :`[${skill.target}]`
+                const target = skill.target === 'SELF' ? '' : `[${skill.target}]`
                 return <div>{`${target}${skill.attribute}: ${skill.value * 100}%`}</div>
             })
         }

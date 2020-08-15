@@ -1,16 +1,16 @@
 // @flow
 
-type Role = 'TANKER' | 'WARRIOR'
-type Element = 'WATER' | 'LIGHT'
-type Resistance = { type: 'BASIC' | 'DARK' | 'FIRE' | 'EARTH', value: number }
-type Attribute = 'HP' | 'RANGE_ATK' | 'LIGHT_ATK' | 'WEAPON_SKILL_REGEN_SPEED'
-type SkillTarget = 'SELF' | 'PARTY'
-type Skill = {
+export type Role = 'TANKER' | 'WARRIOR'
+export type Element = 'WATER' | 'LIGHT'
+export type Resistance = { type: 'BASIC' | 'DARK' | 'FIRE' | 'EARTH', value: number }
+export type Attribute = 'HP' | 'RANGE_ATK' | 'LIGHT_ATK' | 'WEAPON_SKILL_REGEN_SPEED'
+export type SkillTarget = 'SELF' | 'PARTY'
+export type Skill = {
     target: SkillTarget,
     attribute: Attribute,
     value: number,
 }
-type Hero = {
+export type Hero = {
     name: string,
     role: Role,
     element: Element,
