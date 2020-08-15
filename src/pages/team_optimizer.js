@@ -137,12 +137,18 @@ function TeamOptimizer() {
     }, [selectedHeroes])
 
     return <div>
+        <Checkbox checked={selectedHeroes.length === data.length} onChange={(e) => {
+            if (e.target.checked) {
+                setSelectedHeroes(data)
+            } else (setSelectedHeroes([]))
+
+        }}>Select All</Checkbox>
         <Checkbox.Group options={data.map(hero => {
             return {
                 label: hero.name,
                 value: hero.name
             }
-        })} defaultValue={['Apple']} onChange={heroes => {
+        })} value={selectedHeroes.map(hero => hero.name)} onChange={heroes => {
             setSelectedHeroes(data.filter(hero => heroes.includes(hero.name)));
         }}/>
         <Table columns={columns} dataSource={calculatedTeams}/>
