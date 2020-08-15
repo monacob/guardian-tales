@@ -172,6 +172,26 @@ const heroes: Array<Hero> = [
             attribute: 'ATK',
             value: 0.48
         }]
+    },
+    {
+        name: 'CV. Stephanie Sheh',
+        role: 'SUPPORT',
+        element: 'DARK',
+        atk: 590,
+        criticalHitChance: 0.03,
+        hp: 18758,
+        def: 95,
+        damageReduction: 18,
+        cardSlot: 2,
+        resistance: [
+            {type: 'LIGHT', value: -0.3},
+            {type: 'BASIC', value: 0.3},
+        ],
+        skills: [{
+            target: 'DARK',
+            attribute: 'ATK',
+            value: 0.30
+        }]
     }
 ]
 
