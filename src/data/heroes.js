@@ -91,10 +91,6 @@ const heroes: Array<Hero> = [
             target: 'RANGED',
             attribute: 'ATK',
             value: 0.50
-        }, {
-            target: 'SELF',
-            attribute: 'WEAPON_SKILL_REGEN_SPEED',
-            value: 0.06
         }]
     },
     {
@@ -115,10 +111,30 @@ const heroes: Array<Hero> = [
             target: 'BASIC',
             attribute: 'ATK',
             value: 0.40
+        }]
+    },
+    {
+        name: 'CV. Aleks Le',
+        role: 'WARRIOR',
+        element: 'BASIC',
+        atk: 565,
+        criticalHitChance: 0.03,
+        hp: 20028,
+        def: 105,
+        damageReduction: 18,
+        cardSlot: 2,
+        resistance: [
+            {type: 'DARK', value: -0.3},
+            {type: 'LIGHT', value: 0.3},
+        ],
+        skills: [{
+            target: 'BASIC',
+            attribute: 'ATK',
+            value: 0.36
         }, {
             target: 'SELF',
             attribute: 'WEAPON_SKILL_REGEN_SPEED',
-            value: 0.06
+            value: 0.05
         }]
     }
 ]
