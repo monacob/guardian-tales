@@ -70,8 +70,8 @@ function calculateTeamAttributes(teams: Array<Team>) {
             }).reduce((sum, value) => {
                 return {basic: sum.basic + value.basic, adjusted: sum.adjusted + value.adjusted}
             }, {basic: 0, adjusted: 0});
-            team[attr.toLowerCase()].basic = basic;
-            team[attr.toLowerCase()].adjusted = adjusted;
+            team[attr.toLowerCase()].basic = Math.round(basic);
+            team[attr.toLowerCase()].adjusted = Math.round(adjusted);
         }
 
 

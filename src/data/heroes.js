@@ -1,8 +1,8 @@
 // @flow
 
-export type Role = 'TANKER' | 'WARRIOR' | 'RANGED';
-export type Element = 'WATER' | 'LIGHT' | 'FIRE' | 'EARTH' | 'DARK';
-export type Resistance = { type: 'BASIC' | Element, value: number };
+export type Role = 'TANKER' | 'WARRIOR' | 'RANGED' | 'SUPPORT';
+export type Element = 'BASIC' | 'WATER' | 'LIGHT' | 'FIRE' | 'EARTH' | 'DARK';
+export type Resistance = { type: Element, value: number };
 export type Attribute = 'HP' | 'RANGE_ATK' | 'ATK' | 'WEAPON_SKILL_REGEN_SPEED';
 export type SkillTarget = 'SELF' | 'PARTY' | Element | Role
 export type Skill = {
@@ -91,6 +91,30 @@ const heroes: Array<Hero> = [
             target: 'RANGED',
             attribute: 'ATK',
             value: 0.50
+        }, {
+            target: 'SELF',
+            attribute: 'WEAPON_SKILL_REGEN_SPEED',
+            value: 0.06
+        }]
+    },
+    {
+        name: 'Eva',
+        role: 'SUPPORT',
+        element: 'BASIC',
+        atk: 642,
+        criticalHitChance: 0.06,
+        hp: 18818,
+        def: 121,
+        damageReduction: 24,
+        cardSlot: 2,
+        resistance: [
+            {type: 'DARK', value: -0.3},
+            {type: 'LIGHT', value: 0.3},
+        ],
+        skills: [{
+            target: 'BASIC',
+            attribute: 'ATK',
+            value: 0.40
         }, {
             target: 'SELF',
             attribute: 'WEAPON_SKILL_REGEN_SPEED',
