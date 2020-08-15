@@ -1,18 +1,22 @@
-import React from 'react';
+// @flow
+
+import * as React from 'react';
 import './../App.css';
 import 'antd/dist/antd.css';
 import {UserOutlined} from '@ant-design/icons';
 import {Layout, Menu} from 'antd';
 import {withRouter} from "react-router-dom";
+import type {History} from 'react-router';
 
 const {SubMenu} = Menu;
 const {Header, Content, Sider} = Layout;
 
 type Props = {
-    children: React.Node
+    children: React.Node,
+    history: History,
 }
 
-function MenuTemplate({children,history}: Props) {
+function MenuTemplate({children, history}: Props) {
     return (
 
         <Layout>
