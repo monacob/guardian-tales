@@ -100,7 +100,9 @@ const columns = [
             return <Tooltip title={`${basic} ${adjusted}`}>
                 {adjusted}
             </Tooltip>
-        }
+        },
+        defaultSortOrder: 'descend',
+        sorter: (a, b) => a.atk.adjusted - b.atk.adjusted
     },
     {
         title: 'HP',
@@ -110,7 +112,8 @@ const columns = [
             return <Tooltip title={`${basic} ${adjusted}`}>
                 {adjusted}
             </Tooltip>
-        }
+        },
+        sorter: (a, b) => a.hp.adjusted - b.hp.adjusted
     },
     // {
     //     title: 'Defence',
