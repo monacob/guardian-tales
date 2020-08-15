@@ -84,7 +84,7 @@ const columns = [
         dataIndex: 'members',
         key: 'members',
         render: (heroes: Array<Hero>) => {
-            return heroes.map(hero => hero.name).join(',')
+            return heroes.map(hero => hero.name).join(', ')
         }
     },
     {
