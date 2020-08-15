@@ -1,15 +1,15 @@
 // @flow
 
-export type Role = 'TANKER' | 'WARRIOR'
-export type Element = 'WATER' | 'LIGHT'
-export type Resistance = { type: 'BASIC' | 'DARK' | 'FIRE' | 'EARTH', value: number }
-export type Attribute = 'HP' | 'RANGE_ATK' | 'LIGHT_ATK' | 'WEAPON_SKILL_REGEN_SPEED'
-export type SkillTarget = 'SELF' | 'PARTY'
+export type Role = 'TANKER' | 'WARRIOR';
+export type Element = 'WATER' | 'LIGHT';
+export type Resistance = { type: 'BASIC' | 'DARK' | 'FIRE' | 'EARTH', value: number };
+export type Attribute = 'HP' | 'RANGE_ATK' | 'ATK' | 'WEAPON_SKILL_REGEN_SPEED';
+export type SkillTarget = 'SELF' | 'PARTY' | Element
 export type Skill = {
     target: SkillTarget,
     attribute: Attribute,
     value: number,
-}
+};
 export type Hero = {
     name: string,
     role: Role,
@@ -22,7 +22,7 @@ export type Hero = {
     cardSlot: number,
     resistance: Array<Resistance>,
     skills: Array<Skill>,
-}
+};
 
 const heroes: Array<Hero> = [
     {
@@ -64,8 +64,8 @@ const heroes: Array<Hero> = [
             {type: 'DARK', value: 0.3},
         ],
         skills: [{
-            target: 'PARTY',
-            attribute: 'LIGHT_ATK',
+            target: 'LIGHT',
+            attribute: 'ATK',
             value: 0.4
         }, {
             target: 'SELF',
