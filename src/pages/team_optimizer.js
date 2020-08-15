@@ -16,6 +16,7 @@ type Team = {
 function generateTeams(heroes: Array<Hero>, teams: Array<Team>, team: Team) {
     if (team.members.length === 4 || team.members.length === heroes.length) {
         teams.push(team)
+        return;
     }
     for (const hero of heroes) {
         const newTeam = JSON.parse(JSON.stringify(team))
