@@ -1,6 +1,7 @@
 // @flow
 
 import { Layout, Menu, Breadcrumb } from 'antd';
+import Heroes from './heroes'
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 import React from 'react';
 
@@ -59,7 +60,7 @@ function Home(){
                         minHeight: 280,
                     }}
                 >
-                    Content
+                    <Heroes/>
                 </Content>
             </Layout>
         </Layout>
