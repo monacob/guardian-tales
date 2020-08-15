@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import type {Skill, Resistance} from "../data/heroes.js";
 import {Table} from 'antd';
 
 import heroes from '../data/heroes.js'
@@ -22,7 +21,7 @@ function generateTeams(team: Team) {
     }
     for (const hero of heroes) {
         const newTeam = JSON.parse(JSON.stringify(team))
-        if (newTeam.members.length === 0 || newTeam.members.every(member => member.name < hero.name)) {
+        if (newTeam.members.every(member => member.name < hero.name)) {
             newTeam.members.push(hero)
             generateTeams(newTeam)
         }
