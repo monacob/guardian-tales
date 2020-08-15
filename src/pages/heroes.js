@@ -4,7 +4,7 @@ import React from 'react';
 
 import {Table} from 'antd';
 
-const data = require('../data/heroes.json');
+import  data from '../data/heroes.js'
 const columns = [
     {
         title: 'Name',
