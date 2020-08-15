@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import Heroes from "./pages/heroes";
 import Menu from './pages/menu'
+import TeamOptimizer from "./pages/team_optimizer";
 
 function App() {
     return (
@@ -20,6 +21,9 @@ function App() {
                     <Switch>
                         <Route path="/heroes">
                             <Heroes/>
+                        </Route>
+                        <Route path="/teams">
+                            <TeamOptimizer/>
                         </Route>
                         <Route path="/">
                             <Home/>

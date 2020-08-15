@@ -39,6 +39,14 @@ function MenuTemplate({children, history}: Props) {
                                  title="Heroes">
 
                         </SubMenu>
+                        <SubMenu onTitleClick={() => {
+                            history.push('/teams')
+                        }}
+                                 key="sub2"
+                                 icon={<UserOutlined/>}
+                                 title="Teams">
+
+                        </SubMenu>
                     </Menu>
                 </Sider>
                 <Layout style={{padding: '0 24px 24px'}}>
