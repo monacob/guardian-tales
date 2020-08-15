@@ -9,12 +9,14 @@ import type {Attribute, Hero} from "../data/heroes";
 type Team = {
     members: Array<Hero>,
     atk: { basic: number, adjusted: number },
+    hp: { basic: number, adjusted: number },
 }
 
 const teams = [];
 generateTeams({
     members: [],
     atk: {basic: 0, adjusted: 0},
+    hp: {basic: 0, adjusted: 0},
 });
 calculateTeamAttributes(teams);
 
@@ -58,17 +60,20 @@ function calculateTeamAttributes(teams: Array<Team>) {
                 }
             }
         }
-        console.log(multipliers);
-        const {basic, adjusted} = team.members.map(member => {
-            const basic = member.atk;
-            const multiplier = 1 + (multipliers.get(member.name)?.get('ATK') ?? 0);
-            const adjusted = multiplier * basic;
-            return {basic, adjusted}
-        }).reduce((sum, value) => {
-            return {basic: sum.basic + value.basic, adjusted: sum.adjusted + value.adjusted}
-        }, {basic: 0, adjusted: 0});
-        team.atk.basic = basic;
-        team.atk.adjusted = adjusted;
+        for (let attr of ['ATK', 'HP']) {
+            const {basic, adjusted} = team.members.map(member => {
+                const basic = member[attr.toLowerCase()];
+                const multiplier = 1 + (multipliers.get(member.name)?.get(attr) ?? 0);
+                const adjusted = multiplier * basic;
+                return {basic, adjusted}
+            }).reduce((sum, value) => {
+                return {basic: sum.basic + value.basic, adjusted: sum.adjusted + value.adjusted}
+            }, {basic: 0, adjusted: 0});
+            team[attr.toLowerCase()].basic = basic;
+            team[attr.toLowerCase()].adjusted = adjusted;
+        }
+
+
     }
 }
 
@@ -91,11 +96,17 @@ const columns = [
             </Tooltip>
         }
     },
+    {
+        title: 'HP',
+        dataIndex: 'hp',
+        key: 'hp',
+        render: ({basic, adjusted}) => {
+            return <Tooltip title={`${basic} ${adjusted}`}>
+                {adjusted}
+            </Tooltip>
+        }
+    },
     // {
-    //     title: 'HP',
-    //     dataIndex: 'hp',
-    //     key: 'hp',
-    // }, {
     //     title: 'Defence',
     //     dataIndex: 'def',
     //     key: 'def',
