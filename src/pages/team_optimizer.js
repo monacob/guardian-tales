@@ -124,7 +124,7 @@ const columns = [
 
 
 function TeamOptimizer() {
-    const [selectedHeroes, setSelectedHeroes] = useState([])
+    const [selectedHeroes, setSelectedHeroes] = useState(data)
     const calculatedTeams = useMemo(() => {
         const teams = [];
         generateTeams(selectedHeroes, teams, {
