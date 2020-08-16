@@ -13,8 +13,8 @@ type Team = {
     def: { basic: number, adjusted: number },
 }
 
-function generateTeams(heroes: Array<Hero>, teams: Array<Team>, team: Team) {
-    if (team.members.length === 4 || team.members.length === heroes.length) {
+function generateTeams(heroes: Array<Hero>, teams: Array<Team>, team: Team, memberCount: number) {
+    if (team.members.length === memberCount || team.members.length === heroes.length) {
         teams.push(team)
         return;
     }
@@ -22,7 +22,7 @@ function generateTeams(heroes: Array<Hero>, teams: Array<Team>, team: Team) {
         const newTeam = JSON.parse(JSON.stringify(team))
         if (newTeam.members.every(member => member.name < hero.name)) {
             newTeam.members.push(hero)
-            generateTeams(heroes, teams, newTeam)
+            generateTeams(heroes, teams, newTeam, memberCount)
         }
     }
 }
@@ -162,14 +162,14 @@ function TeamOptimizer() {
             atk: {basic: 0, adjusted: 0},
             hp: {basic: 0, adjusted: 0},
             def: {basic: 0, adjusted: 0},
-        });
+        }, memberCount);
         calculateTeamAttributes(teams);
         return teams;
-    }, [selectedHeroes])
+    }, [selectedHeroes, memberCount])
 
     return <div>
         <div>
-            Members:
+            Member Count:
             <Radio.Group value={memberCount.toString()} onChange={(event) => {
                 const count = parseInt(event.target.value)
                 setMemberCount(count)
@@ -180,20 +180,22 @@ function TeamOptimizer() {
                 <Radio.Button value="4">4</Radio.Button>
             </Radio.Group>
         </div>
-        <Checkbox checked={selectedHeroes.length === data.length} onChange={(e) => {
-            if (e.target.checked) {
-                setSelectedHeroes(data)
-            } else (setSelectedHeroes([]))
+        <div>
+            <Checkbox checked={selectedHeroes.length === data.length} onChange={(e) => {
+                if (e.target.checked) {
+                    setSelectedHeroes(data)
+                } else (setSelectedHeroes([]))
 
-        }}>Select All</Checkbox>
-        <Checkbox.Group options={data.map(hero => {
-            return {
-                label: hero.name,
-                value: hero.name
-            }
-        })} value={selectedHeroes.map(hero => hero.name)} onChange={heroes => {
-            setSelectedHeroes(data.filter(hero => heroes.includes(hero.name)));
-        }}/>
+            }}>Select All</Checkbox>
+            <Checkbox.Group options={data.map(hero => {
+                return {
+                    label: hero.name,
+                    value: hero.name
+                }
+            })} value={selectedHeroes.map(hero => hero.name)} onChange={heroes => {
+                setSelectedHeroes(data.filter(hero => heroes.includes(hero.name)));
+            }}/>
+        </div>
         <Table columns={columns} dataSource={calculatedTeams}/>
     </div>
 }
