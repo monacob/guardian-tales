@@ -138,7 +138,7 @@ const heroes: Array<Hero> = [
         }]
     },
     {
-        name: 'Flower Girl Bari',
+        name: 'Bari',
         role: 'RANGED',
         element: 'EARTH',
         atk: 977,
@@ -154,7 +154,7 @@ const heroes: Array<Hero> = [
         skills: []
     },
     {
-        name: 'Red Hood Elvira',
+        name: 'Elvira',
         role: 'RANGED',
         element: 'FIRE',
         atk: 684,
