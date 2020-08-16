@@ -252,6 +252,46 @@ const heroes: Array<Hero> = [
             attribute: 'ATK',
             value: 0.40
         }]
+    },
+    {
+        name: 'Rachel',
+        role: 'RANGED',
+        element: 'WATER',
+        atk: 688,
+        criticalHitChance: 0.11,
+        hp: 16434,
+        def: 88,
+        damageReduction: 26,
+        cardSlot: 2,
+        resistance: [
+            {type: 'EARTH', value: -0.3},
+            {type: 'FIRE', value: 0.3},
+        ],
+        skills: [{
+            target: 'RANGED',
+            attribute: 'ATK',
+            value: 0.48
+        }]
+    },
+    {
+        name: 'Ranpang',
+        role: 'TANKER',
+        element: 'BASIC',
+        atk: 403,
+        criticalHitChance: 0.04,
+        hp: 22233,
+        def: 170,
+        damageReduction: 32,
+        cardSlot: 2,
+        resistance: [
+            {type: 'DARK', value: -0.3},
+            {type: 'LIGHT', value: 0.3},
+        ],
+        skills: [{
+            target: 'PARTY',
+            attribute: 'DEF',
+            value: 0.42
+        }]
     }
 ]
 
