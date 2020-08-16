@@ -292,6 +292,26 @@ const heroes: Array<Hero> = [
             attribute: 'DEF',
             value: 0.42
         }]
+    },
+    {
+        name: 'Yuze',
+        role: 'WARRIOR',
+        element: 'DARK',
+        atk: 521,
+        criticalHitChance: 0.06,
+        hp: 17967,
+        def: 134,
+        damageReduction: 12,
+        cardSlot: 2,
+        resistance: [
+            {type: 'LIGHT', value: -0.3},
+            {type: 'BASIC', value: 0.3},
+        ],
+        skills: [{
+            target: 'PARTY',
+            attribute: 'HP',
+            value: 0.36
+        }]
     }
 ]
 
