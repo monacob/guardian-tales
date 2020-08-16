@@ -114,7 +114,7 @@ const heroes: Array<Hero> = [
         }]
     },
     {
-        name: 'CV. Aleks Le',
+        name: 'Male Knight',
         role: 'WARRIOR',
         element: 'BASIC',
         atk: 565,
