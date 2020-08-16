@@ -3,7 +3,7 @@
 export type Role = 'TANKER' | 'WARRIOR' | 'RANGED' | 'SUPPORT';
 export type Element = 'BASIC' | 'WATER' | 'LIGHT' | 'FIRE' | 'EARTH' | 'DARK';
 export type Resistance = { type: Element, value: number };
-export type Attribute = 'HP' | 'DEF' | 'RANGE_ATK' | 'ATK' | 'WEAPON_SKILL_REGEN_SPEED';
+export type Attribute = 'HP' | 'DEF' | 'HEAL' | 'RANGE_ATK' | 'ATK' | 'WEAPON_SKILL_REGEN_SPEED';
 export type SkillTarget = 'SELF' | 'PARTY' | Element | Role
 export type Skill = {
     target: SkillTarget,
@@ -18,6 +18,7 @@ export type Hero = {
     criticalHitChance: number,
     hp: number,
     def: number,
+    heal: number,
     damageReduction: number,
     cardSlot: number,
     resistance: Array<Resistance>,
@@ -33,6 +34,7 @@ const heroes: Array<Hero> = [
         criticalHitChance: 0.0,
         hp: 23471,
         def: 398,
+        heal: 0,
         damageReduction: 19,
         cardSlot: 2,
         resistance: [
@@ -57,6 +59,7 @@ const heroes: Array<Hero> = [
         criticalHitChance: 0.08,
         hp: 19941,
         def: 125,
+        heal: 0,
         damageReduction: 26,
         cardSlot: 2,
         resistance: [
@@ -81,6 +84,7 @@ const heroes: Array<Hero> = [
         criticalHitChance: 0.03,
         hp: 18426,
         def: 124,
+        heal: 0,
         damageReduction: 30,
         cardSlot: 2,
         resistance: [
@@ -101,6 +105,7 @@ const heroes: Array<Hero> = [
         criticalHitChance: 0.06,
         hp: 18818,
         def: 121,
+        heal: 0,
         damageReduction: 24,
         cardSlot: 2,
         resistance: [
@@ -121,6 +126,7 @@ const heroes: Array<Hero> = [
         criticalHitChance: 0.03,
         hp: 20028,
         def: 105,
+        heal: 0,
         damageReduction: 18,
         cardSlot: 2,
         resistance: [
@@ -145,6 +151,7 @@ const heroes: Array<Hero> = [
         criticalHitChance: 0.03,
         hp: 18082,
         def: 155,
+        heal: 0,
         damageReduction: 22,
         cardSlot: 2,
         resistance: [
@@ -161,6 +168,7 @@ const heroes: Array<Hero> = [
         criticalHitChance: 0.02,
         hp: 17642,
         def: 98,
+        heal: 0,
         damageReduction: 23,
         cardSlot: 2,
         resistance: [
@@ -181,6 +189,7 @@ const heroes: Array<Hero> = [
         criticalHitChance: 0.03,
         hp: 18758,
         def: 95,
+        heal: 0,
         damageReduction: 18,
         cardSlot: 2,
         resistance: [
@@ -201,6 +210,7 @@ const heroes: Array<Hero> = [
         criticalHitChance: 0.03,
         hp: 20091,
         def: 154,
+        heal: 0,
         damageReduction: 22,
         cardSlot: 2,
         resistance: [
@@ -221,6 +231,7 @@ const heroes: Array<Hero> = [
         criticalHitChance: 0.03,
         hp: 20091,
         def: 154,
+        heal: 0,
         damageReduction: 22,
         cardSlot: 2,
         resistance: [
@@ -241,6 +252,7 @@ const heroes: Array<Hero> = [
         criticalHitChance: 0.00,
         hp: 20775,
         def: 125,
+        heal: 0,
         damageReduction: 18,
         cardSlot: 2,
         resistance: [
@@ -261,6 +273,7 @@ const heroes: Array<Hero> = [
         criticalHitChance: 0.11,
         hp: 16434,
         def: 88,
+        heal: 0,
         damageReduction: 26,
         cardSlot: 2,
         resistance: [
@@ -281,6 +294,7 @@ const heroes: Array<Hero> = [
         criticalHitChance: 0.04,
         hp: 22233,
         def: 170,
+        heal: 0,
         damageReduction: 32,
         cardSlot: 2,
         resistance: [
@@ -301,6 +315,7 @@ const heroes: Array<Hero> = [
         criticalHitChance: 0.06,
         hp: 17967,
         def: 134,
+        heal: 0,
         damageReduction: 12,
         cardSlot: 2,
         resistance: [
@@ -321,6 +336,7 @@ const heroes: Array<Hero> = [
         criticalHitChance: 0.05,
         hp: 16833,
         def: 120,
+        heal: 0,
         damageReduction: 15,
         cardSlot: 2,
         resistance: [
