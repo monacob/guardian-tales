@@ -95,6 +95,19 @@ const columns = [
         }
     },
     {
+        title: 'Skills',
+        dataIndex: 'members',
+        key: 'skills',
+        render: (heroes: Array<Hero>) => {
+            return heroes.flatMap(hero => hero.skills)
+                .map(skill => {
+                    return `[${skill.target}] ${skill.attribute} ${skill.value * 100}%`
+                }).map(skill => {
+                    return <div>{skill}</div>
+                });
+        }
+    },
+    {
         title: 'Elements',
         dataIndex: 'members',
         key: 'elements',
