@@ -232,6 +232,26 @@ const heroes: Array<Hero> = [
             attribute: 'ATK',
             value: 0.40
         }]
+    },
+    {
+        name: 'Sohee',
+        role: 'RANGED',
+        element: 'LIGHT',
+        atk: 595,
+        criticalHitChance: 0.00,
+        hp: 20775,
+        def: 125,
+        damageReduction: 18,
+        cardSlot: 2,
+        resistance: [
+            {type: 'BASIC', value: -0.3},
+            {type: 'DARK', value: 0.3},
+        ],
+        skills: [{
+            target: 'FIRE',
+            attribute: 'ATK',
+            value: 0.40
+        }]
     }
 ]
 
