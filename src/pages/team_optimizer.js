@@ -1,7 +1,7 @@
 // @flow
 
 import React, {useMemo, useState} from 'react';
-import {Table, Tooltip, Checkbox} from 'antd';
+import {Table, Tooltip, Checkbox, Radio} from 'antd';
 
 import data from '../data/heroes.js'
 import type {Attribute, Hero} from "../data/heroes";
@@ -154,6 +154,7 @@ const columns = [
 
 function TeamOptimizer() {
     const [selectedHeroes, setSelectedHeroes] = useState(data)
+    const [memberCount, setMemberCount] = useState(4)
     const calculatedTeams = useMemo(() => {
         const teams = [];
         generateTeams(selectedHeroes, teams, {
@@ -167,6 +168,18 @@ function TeamOptimizer() {
     }, [selectedHeroes])
 
     return <div>
+        <div>
+            Members:
+            <Radio.Group value={memberCount.toString()} onChange={(event) => {
+                const count = parseInt(event.target.value)
+                setMemberCount(count)
+            }}>
+                <Radio.Button value="1">1</Radio.Button>
+                <Radio.Button value="2">2</Radio.Button>
+                <Radio.Button value="3">3</Radio.Button>
+                <Radio.Button value="4">4</Radio.Button>
+            </Radio.Group>
+        </div>
         <Checkbox checked={selectedHeroes.length === data.length} onChange={(e) => {
             if (e.target.checked) {
                 setSelectedHeroes(data)
