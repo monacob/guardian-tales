@@ -32,6 +32,10 @@ const columns = [
         dataIndex: 'def',
         key: 'def',
     }, {
+        title: 'Heal',
+        dataIndex: 'heal',
+        key: 'heal',
+    }, {
         title: 'Damage Reduction',
         dataIndex: 'damageReduction',
         key: 'damageReduction',
