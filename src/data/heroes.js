@@ -348,6 +348,23 @@ const heroes: Array<Hero> = [
             attribute: 'ATK',
             value: 0.35
         }]
+    },
+    {
+        name: 'Loraine',
+        role: 'SUPPORT',
+        element: 'BASIC',
+        atk: 491,
+        criticalHitChance: 0.02,
+        hp: 18025,
+        def: 101,
+        heal: 1419,
+        damageReduction: 28,
+        cardSlot: 2,
+        resistance: [
+            {type: 'DARK', value: -0.3},
+            {type: 'LIGHT', value: 0.3},
+        ],
+        skills: []
     }
 ]
 
