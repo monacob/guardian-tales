@@ -312,6 +312,26 @@ const heroes: Array<Hero> = [
             attribute: 'HP',
             value: 0.36
         }]
+    },
+    {
+        name: 'Aoba',
+        role: 'SUPPORT',
+        element: 'EARTH',
+        atk: 615,
+        criticalHitChance: 0.05,
+        hp: 16833,
+        def: 120,
+        damageReduction: 15,
+        cardSlot: 2,
+        resistance: [
+            {type: 'FIRE', value: -0.3},
+            {type: 'WATER', value: 0.3},
+        ],
+        skills: [{
+            target: 'EARTH',
+            attribute: 'ATK',
+            value: 0.35
+        }]
     }
 ]
 
