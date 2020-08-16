@@ -336,7 +336,7 @@ const heroes: Array<Hero> = [
         criticalHitChance: 0.05,
         hp: 16833,
         def: 120,
-        heal: 0,
+        heal: 1233,
         damageReduction: 15,
         cardSlot: 2,
         resistance: [
