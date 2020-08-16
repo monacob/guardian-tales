@@ -87,6 +87,22 @@ const columns = [
         render: () => 68
     },
     {
+        title: 'Roles',
+        dataIndex: 'members',
+        key: 'roles',
+        render: (heroes: Array<Hero>) => {
+            return heroes.map(hero => hero.role).join(', ')
+        }
+    },
+    {
+        title: 'Elements',
+        dataIndex: 'members',
+        key: 'elements',
+        render: (heroes: Array<Hero>) => {
+            return heroes.map(hero => hero.element).join(', ')
+        }
+    },
+    {
         title: 'Attack',
         dataIndex: 'atk',
         key: 'atk',
